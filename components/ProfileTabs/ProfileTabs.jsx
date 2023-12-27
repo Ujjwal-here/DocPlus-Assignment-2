@@ -14,52 +14,51 @@ export const ProfileTabs = () => {
 
     function tabNumberView() {
         if (tabNumber === 2) {
-            return Availability()
+            return <Availability/>
         } else if (tabNumber === 3) {
-            return Fees()
+            return <Fees/>
         } else if (tabNumber === 4) {
-            return PatientReviews()
+            return <PatientReviews/>
         }
     }
 
     return (
         <View>
             <View style={styles.profileTabsContainer}>
-                <Pressable style={[styles.profileTabContainer, tabNumber === 1 ? {
-                    elevation: 20,
+                <Pressable style={[styles.profileTabContainer,styles.personTabBorderRadius, tabNumber === 1 ? {
+                    elevation: 10,
                     paddingHorizontal: verticalScale(20),
-                    borderTopLeftRadius: moderateScale(10),
-                    borderTopRightRadius: moderateScale(10),
-                } : {elevation: 5}]}
+                    zIndex: 1,
+                } : {elevation: 5,zIndex: 0}]}
                            onPress={() => tabNumberHandler(1)}>
                     {tabNumber !== 1 ? <Image style={styles.icon} source={require("../../assets/images/person.png")}/> :
                         <Text style={styles.iconText}>Person</Text>}
                 </Pressable>
-                <Pressable style={[styles.profileTabContainer, tabNumber === 2 ? {
-                    elevation: 20,
-                    paddingHorizontal: verticalScale(20),
-                    borderTopLeftRadius: moderateScale(10),
-                    borderTopRightRadius: moderateScale(10),
-                } : {elevation: 5}]}
+                <Pressable style={[styles.profileTabContainer,styles.availableTabBorderRadius, tabNumber === 2 ? {
+                    elevation: 10,
+                    zIndex: 1,
+                    paddingHorizontal: verticalScale(30),
+                } : {elevation: 5,zIndex: 0}]}
                            onPress={() => tabNumberHandler(2)}>
                     {tabNumber !== 2 ?
                         <Image style={styles.icon} source={require("../../assets/images/available.png")}/> :
                         <Text style={[styles.iconText]}>Availability</Text>}
                 </Pressable>
-                <Pressable style={[styles.profileTabContainer, tabNumber === 3 ? {
-                    elevation: 20, paddingHorizontal: verticalScale(20), borderTopLeftRadius: moderateScale(10),
-                    borderTopRightRadius: moderateScale(10),
-                } : {elevation: 5}]}
+                <Pressable style={[styles.profileTabContainer,styles.feesTabBorderRadius, tabNumber === 3 ? {
+                    elevation: 10,
+                    zIndex: 1,
+                    paddingHorizontal: verticalScale(20)
+                } : {elevation: 5, zIndex: 0}]}
                            onPress={() => tabNumberHandler(3)}>
                     {tabNumber !== 3 ? <Image style={styles.icon} source={require("../../assets/images/fees.png")}/> :
                         <Text style={styles.iconText}>Fees</Text>}
                 </Pressable>
 
-                <Pressable style={[styles.profileTabContainer, tabNumber === 4 ? {
-                    elevation: 20,
+                <Pressable style={[styles.profileTabContainer,styles.reviewBorderRadius, tabNumber === 4 ? {
+                    elevation: 10,
+                    zIndex: 1,
                     paddingHorizontal: verticalScale(20),
-                    borderTopRightRadius: moderateScale(10),
-                } : {elevation: 5}]}
+                } : {elevation: 5,zIndex: 0}]}
                            onPress={() => tabNumberHandler(4)}>
                     {tabNumber !== 4 ?
                         <Image style={styles.icon} source={require("../../assets/images/reviews.png")}/> :
@@ -69,7 +68,6 @@ export const ProfileTabs = () => {
             <View style={styles.tabCard}>
                 {tabNumberView()}
             </View>
-
         </View>
 
     )
@@ -83,6 +81,7 @@ const styles = StyleSheet.create({
         marginHorizontal: horizontalScale(20),
         backgroundColor: "white",
         elevation: 10,
+        zIndex: 0,
         borderTopLeftRadius: moderateScale(10),
         borderTopRightRadius: moderateScale(10),
     },
@@ -95,6 +94,22 @@ const styles = StyleSheet.create({
     icon: {
         alignSelf: "center",
     },
+    personTabBorderRadius:{
+        borderTopLeftRadius: moderateScale(10),
+        borderTopRightRadius: moderateScale(10),
+    },
+    availableTabBorderRadius:{
+        borderTopLeftRadius: moderateScale(10),
+        borderTopRightRadius: moderateScale(10),
+    },
+    feesTabBorderRadius:{
+        borderTopLeftRadius: moderateScale(10),
+        borderTopRightRadius: moderateScale(10),
+    },
+    reviewBorderRadius:{
+        borderTopLeftRadius: moderateScale(10),
+        borderTopRightRadius: moderateScale(10),
+    },
     iconText: {
         color: "#EA1A65",
         alignSelf: "center",
@@ -106,8 +121,10 @@ const styles = StyleSheet.create({
         paddingVertical: verticalScale(10),
         paddingHorizontal: horizontalScale(20),
         backgroundColor: "white",
-        elevation: 20,
+        elevation: 10,
         top: verticalScale(-5),
+        zIndex: 1,
         borderRadius: moderateScale(5),
+        marginBottom: verticalScale(100),
     }
 })

@@ -1,30 +1,38 @@
-import {FlatList, Image, StyleSheet, Text, View} from "react-native";
+import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {moderateScale, verticalScale} from "../../metrics";
 import {DayDateCard} from "../../resusable/DayDateCard/DayDateCard";
+import {useState} from "react";
 
 export const Availability = () => {
+    const [selectedDate, setSelectedDate] = useState(null)
     const daydate = [
         {
+            id: 1,
             date: 13,
             day: "MON"
         },
         {
+            id: 2,
             date: 14,
             day: "TUE"
         },
         {
+            id: 3,
             date: 15,
             day: "WED"
         },
         {
+            id: 4,
             date: 16,
             day: "THU"
         },
         {
+            id: 5,
             date: 17,
             day: "FRI"
         },
         {
+            id: 6,
             date: 18,
             day: "SAT"
         }
@@ -40,9 +48,11 @@ export const Availability = () => {
             </View>
             <View style={styles.weekdaysContainer}>
                 <FlatList horizontal data={daydate} renderItem={(item) => {
-                    return <DayDateCard date={item.item.date} day={item.item.day}/>
+                    return <TouchableOpacity onPress={() => setSelectedDate(item.item.id)}>
+                        <DayDateCard id={item.item.id} date={item.item.date} day={item.item.day} selectedDate={selectedDate}/>
+                    </TouchableOpacity>
                 }} style={[styles.flatListStyle]} contentContainerStyle={styles.contentContainerStyle}
-                          keyExtractor={(item) => item.date}/>
+                          keyExtractor={(item) => item.id}/>
             </View>
         </View>
     )
@@ -70,10 +80,10 @@ const styles = StyleSheet.create({
     },
     weekdaysContainer: {
         marginTop: verticalScale(30),
-        marginBottom: verticalScale(20),
+        // marginBottom: verticalScale(20),
     },
     flatListStyle: {
-        height: verticalScale(200),
+        height: verticalScale(100),
     },
     contentContainerStyle: {
         flexDirection: "row",

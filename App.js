@@ -5,6 +5,7 @@ import {ShowCase} from "./components/ShowCase/ShowCase";
 import {ProfileTabs} from "./components/ProfileTabs/ProfileTabs";
 import {useFonts} from "expo-font";
 import {BookNow} from "./components/BookNow/BookNow";
+import {verticalScale} from "./metrics";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -19,12 +20,12 @@ export default function App() {
       <View style={styles.safeAreaView}>
           <StatusBar/>
           <Appbar/>
-          <ScrollView scrollEnabled style={{height:"50%"}} contentContainerStyle={{flex: 1}}>
+          <BookNow/>
+          <ScrollView scrollEnabled>
               <ShowCase/>
               <ProfileDetails/>
               <ProfileTabs/>
           </ScrollView>
-          <BookNow/>
       </View>
   );
 }

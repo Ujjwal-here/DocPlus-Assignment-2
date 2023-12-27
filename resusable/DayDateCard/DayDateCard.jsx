@@ -1,20 +1,32 @@
-import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 import {horizontalScale, moderateScale, verticalScale} from "../../metrics";
+import {LinearGradient} from "expo-linear-gradient";
 
-export const DayDateCard = ({date, day, selectedDate}) => {
-
-    return (
-        <TouchableOpacity>
-            <View style={styles.dayAndDateContainer}>
-                <Text style={styles.dateText}>
+export const DayDateCard = ({id, date, day, selectedDate}) => {
+    function linearGradientBackground(){
+        return <LinearGradient colors={['#39AAB4', '#2C9EC2']} style={[styles.dayAndDateContainer]}>
+            <View>
+                <Text style={[styles.dateText, styles.colorWhite]}>
                     {date}
                 </Text>
-                <Text style={styles.dayText}>
+                <Text style={[styles.dayText, styles.colorWhite]}>
                     {day}
                 </Text>
             </View>
-        </TouchableOpacity>
-
+        </LinearGradient>
+    }
+    function greyBackGround(){
+        return <View style={styles.dayAndDateContainer}>
+            <Text style={styles.dateText}>
+                {date}
+            </Text>
+            <Text style={styles.dayText}>
+                {day}
+            </Text>
+        </View>
+    }
+    return (
+        selectedDate===id ? linearGradientBackground(): greyBackGround()
     )
 }
 
