@@ -1,20 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {ScrollView, StatusBar, StyleSheet, View} from 'react-native';
+import {Appbar} from "./components/Appbar/Appbar";
+import {ProfileDetails} from "./components/ProfileDetails/ProfileDetails";
+import {ShowCase} from "./components/ShowCase/ShowCase";
+import {ProfileTabs} from "./components/ProfileTabs/ProfileTabs";
+import {useFonts} from "expo-font";
+import {BookNow} from "./components/BookNow/BookNow";
 
 export default function App() {
+    const [fontsLoaded] = useFonts({
+        'Gilroy-Regular': require('./assets/fonts/Gilroy-Regular.ttf'),
+        'Gilroy-SemiBold': require('./assets/fonts/Gilroy-SemiBold.ttf'),
+        'Gilroy-Medium': require('./assets/fonts/Gilroy-Medium.ttf'),
+    });
+    if (!fontsLoaded) {
+        return null;
+    }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <View style={styles.safeAreaView}>
+          <StatusBar/>
+          <Appbar/>
+          <ScrollView scrollEnabled style={{height:"50%"}} contentContainerStyle={{flex: 1}}>
+              <ShowCase/>
+              <ProfileDetails/>
+              <ProfileTabs/>
+          </ScrollView>
+          <BookNow/>
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    safeAreaView: {
+        flex: 1,
+    }
 });
