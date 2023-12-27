@@ -35,6 +35,12 @@ export const ShowCase = () => {
         }
     }, [])
 
+    const [fontsLoaded] = useFonts({
+        'Gilroy-Bold': require('../../assets/fonts/Gilroy-Bold.ttf'),
+    });
+    if (!fontsLoaded) {
+        return null;
+    }
     return (
         <View>
             <FlatList onViewableItemsChanged={onViewableItemsChanged}

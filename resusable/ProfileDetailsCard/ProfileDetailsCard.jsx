@@ -3,6 +3,13 @@ import {horizontalScale, moderateScale, verticalScale} from "../../metrics";
 import {useFonts} from "expo-font";
 
 export const ProfileDetailsCard = ({source, heading, subBoldHeading}) => {
+    const [fontsLoaded] = useFonts({
+        'Gilroy-Bold': require('../../assets/fonts/Gilroy-Bold.ttf'),
+        'Gilroy-Medium': require('../../assets/fonts/Gilroy-Medium.ttf'),
+    });
+    if (!fontsLoaded) {
+        return null;
+    }
     return (
         <View style={styles.container}>
             <Text style={styles.heading}>{heading}</Text>

@@ -5,7 +5,6 @@ import {ShowCase} from "./components/ShowCase/ShowCase";
 import {ProfileTabs} from "./components/ProfileTabs/ProfileTabs";
 import {useFonts} from "expo-font";
 import {BookNow} from "./components/BookNow/BookNow";
-import {verticalScale} from "./metrics";
 
 export default function App() {
     const [fontsLoaded] = useFonts({

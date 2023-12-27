@@ -1,8 +1,17 @@
 import {Image, StyleSheet, Text, View} from "react-native";
 import {horizontalScale, moderateScale, verticalScale} from "../../metrics";
 import {ProfileDetailsCard} from "../../resusable/ProfileDetailsCard/ProfileDetailsCard";
+import {useFonts} from "expo-font";
 
 export const ProfileDetails = () => {
+    const [fontsLoaded] = useFonts({
+        'Gilroy-Regular': require('../../assets/fonts/Gilroy-Regular.ttf'),
+        'Gilroy-SemiBold': require('../../assets/fonts/Gilroy-SemiBold.ttf'),
+        'Gilroy-Medium': require('../../assets/fonts/Gilroy-Medium.ttf'),
+    });
+    if (!fontsLoaded) {
+        return null;
+    }
     const images = [
         require("../../assets/images/Patients.png"),
         require("../../assets/images/achievment.png"),
