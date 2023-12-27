@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: horizontalScale(15),
         position: "absolute",
         bottom: verticalScale(0),
-        elevation: verticalScale(5),
+        elevation: 5,
     },
     containerTwo: {
         paddingVertical: verticalScale(15),

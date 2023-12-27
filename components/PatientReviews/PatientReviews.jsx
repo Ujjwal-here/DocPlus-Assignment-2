@@ -49,10 +49,10 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     gap_5: {
-        gap: 5,
+        gap: moderateScale(5),
     },
     gap_10: {
-        gap: 10
+        gap: moderateScale(10),
     },
     patientReviewText: {
         fontFamily: "Gilroy-SemiBold",
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     },
     line: {
         marginVertical: verticalScale(12),
-        borderWidth: 0.5,
+        borderWidth: moderateScale(0.5),
         borderColor: "#EEEEEE",
     },
     avatarImage: {

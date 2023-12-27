@@ -57,6 +57,6 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     profileDetailsCardContainer: {
-        paddingHorizontal: verticalScale(10)
+        paddingHorizontal: horizontalScale(10)
     }
 })

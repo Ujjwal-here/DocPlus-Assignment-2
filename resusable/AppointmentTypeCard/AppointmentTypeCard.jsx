@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     gap_15:{
-        gap: 15
+        gap: moderateScale(15)
     },
     container: {
         backgroundColor: "white",

@@ -35,13 +35,6 @@ export const ShowCase = () => {
         }
     }, [])
 
-    const [fontsLoaded] = useFonts({
-        'Gilroy-Bold': require('../../assets/fonts/Gilroy-Bold.ttf'),
-    });
-    if (!fontsLoaded) {
-        return null;
-    }
-
     return (
         <View>
             <FlatList onViewableItemsChanged={onViewableItemsChanged}
@@ -66,8 +59,8 @@ const styles = StyleSheet.create({
         paddingVertical: verticalScale(5),
         paddingHorizontal: horizontalScale(15),
         position: "absolute",
-        right: verticalScale(20),
-        bottom: horizontalScale(20),
+        right: horizontalScale(20),
+        bottom: verticalScale(20),
         backgroundColor: 'rgba(0,0,0,0.5)',
         borderRadius: moderateScale(5),
     },

@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     gap_10: {
-        gap: 10
+        gap: moderateScale(10)
     },
     availabilityContainer: {
         marginTop: verticalScale(20),
@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
     },
     weekdaysContainer: {
         marginTop: verticalScale(30),
-        // marginBottom: verticalScale(20),
     },
     flatListStyle: {
         height: verticalScale(100),
@@ -88,6 +87,6 @@ const styles = StyleSheet.create({
     contentContainerStyle: {
         flexDirection: "row",
         justifyContent: "space-between",
-        gap: 5,
+        gap: moderateScale(5),
     }
 })

@@ -27,7 +27,7 @@ export const ProfileTabs = () => {
             <View style={styles.profileTabsContainer}>
                 <Pressable style={[styles.profileTabContainer,styles.personTabBorderRadius, tabNumber === 1 ? {
                     elevation: 10,
-                    paddingHorizontal: verticalScale(20),
+                    paddingHorizontal: horizontalScale(20),
                     zIndex: 1,
                 } : {elevation: 5,zIndex: 0}]}
                            onPress={() => tabNumberHandler(1)}>
@@ -37,7 +37,7 @@ export const ProfileTabs = () => {
                 <Pressable style={[styles.profileTabContainer,styles.availableTabBorderRadius, tabNumber === 2 ? {
                     elevation: 10,
                     zIndex: 1,
-                    paddingHorizontal: verticalScale(30),
+                    paddingHorizontal: horizontalScale(30),
                 } : {elevation: 5,zIndex: 0}]}
                            onPress={() => tabNumberHandler(2)}>
                     {tabNumber !== 2 ?
@@ -47,7 +47,7 @@ export const ProfileTabs = () => {
                 <Pressable style={[styles.profileTabContainer,styles.feesTabBorderRadius, tabNumber === 3 ? {
                     elevation: 10,
                     zIndex: 1,
-                    paddingHorizontal: verticalScale(20)
+                    paddingHorizontal: horizontalScale(20)
                 } : {elevation: 5, zIndex: 0}]}
                            onPress={() => tabNumberHandler(3)}>
                     {tabNumber !== 3 ? <Image style={styles.icon} source={require("../../assets/images/fees.png")}/> :
@@ -57,7 +57,7 @@ export const ProfileTabs = () => {
                 <Pressable style={[styles.profileTabContainer,styles.reviewBorderRadius, tabNumber === 4 ? {
                     elevation: 10,
                     zIndex: 1,
-                    paddingHorizontal: verticalScale(20),
+                    paddingHorizontal: horizontalScale(20),
                 } : {elevation: 5,zIndex: 0}]}
                            onPress={() => tabNumberHandler(4)}>
                     {tabNumber !== 4 ?
